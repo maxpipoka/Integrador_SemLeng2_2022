@@ -2,66 +2,73 @@ package models.basic;
 
 import java.util.Calendar;
 
-//Clase Docente extiende de Persona porque es clase hija
-public class Docente extends Persona {
+public abstract class Docente {
+    private int legajo;
+    private int docUnico;
+    private String nombres;
+    private String apellidos;
+    private Calendar fechaNac;
+    private String direccionNotif;
     private CargoDocente cargoDocente;
 
-    public Docente(int legajo, int docUnico, String nombres, String apellidos, Calendar fechaNac, String direccionNotif,
-            CargoDocente cargoDocente) {
-        super(legajo, docUnico, nombres, apellidos, fechaNac, direccionNotif);
-        this.cargoDocente = cargoDocente;
-    } //con super(valores) se hace referencia a los atributos heredados
+    public Docente(){}
 
-    public Docente(CargoDocente cargoDocente) {
+    public Docente(int legajo, int docUnico, String nombres, String apellidos, Calendar fechaNac, String direccionNotif, CargoDocente cargoDocente){
+        this.legajo = legajo;
+        this.docUnico = docUnico;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.fechaNac = fechaNac;
+        this.direccionNotif = direccionNotif;
         this.cargoDocente = cargoDocente;
     }
 
     public int getLegajo() {
-        return super.getLegajo();
+        return legajo;
     }
 
-    public void setLegajo(int legajo){
-        super.setLegajo(legajo);
+    public void setLegajo(int legajo) {
+        this.legajo = legajo;
     }
 
     public int getDocUnico() {
-        return super.getDocUnico();
+        return docUnico;
     }
 
-    public void setDocUnico(int docUnico){
-        super.setDocUnico(docUnico);
+    public void setDocUnico(int docUnico) {
+        this.docUnico = docUnico;
     }
 
     public String getNombres() {
-        return super.getNombres();
+        return nombres;
     }
 
-    public void setNombres(String nombres){
-        super.setNombres(nombres);
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getApellidos() {
-        return super.getApellidos();
+        return apellidos;
     }
 
-    public void setApellidos(String apellidos){
-        super.setApellidos(apellidos);
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
-    
+
     public Calendar getFechaNac() {
-        return super.getFechaNac();
+        return fechaNac;
     }
 
-    public void setFechaNac(Calendar fechaNac){
-        super.setFechaNac(fechaNac);
+    public void setFechaNac(Calendar fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
     public String getDireccionNotif() {
-        return super.getDireccionNotif();
+        return direccionNotif;
     }
 
-    public void setDireccionNotif(String direccionNotif){
-        super.setDireccionNotif(direccionNotif);
+    public void setDireccionNotif(String direccionNotif) {
+        this.direccionNotif = direccionNotif;
     }
 
     public CargoDocente getCargoDocente() {
@@ -72,7 +79,5 @@ public class Docente extends Persona {
         this.cargoDocente = cargoDocente;
     }
 
-    public String toString(){
-        return getApellidos() +  " " + getNombres() + " - Cargo: " + cargoDocente.getNumero();
-    }
+    
 }

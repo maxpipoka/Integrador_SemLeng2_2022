@@ -3,14 +3,12 @@ package models.basic;
 public class Instituto {
     private int codigo;
     private String denominacion;
-    private Facultad facultad;
 
     public Instituto(){}
 
-    public Instituto(int codigo, String denominacion, Facultad facultad){
+    public Instituto(int codigo, String denominacion){
         this.codigo = codigo;
         this.denominacion = denominacion;
-        this.facultad = facultad;
     }
 
     public int getCodigo() {
@@ -29,14 +27,7 @@ public class Instituto {
         this.denominacion = denominacion;
     }
 
-    public Facultad getFacultad() {
-        return facultad;
-    }
-
-    public void setFacultad(Facultad facultad) {
-        this.facultad = facultad;
-    }
-
+    
     public String toString(){
         return this.getCodigo() + " " + this.getDenominacion();
     }

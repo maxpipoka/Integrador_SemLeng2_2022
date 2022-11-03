@@ -2,7 +2,15 @@ package models.basic;
 
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity //Decorador para indicar que es una entidad a persistir
+@Table(name = "asignaturas")    //Decorador para indicar el nombre de la tabla a crear
 public class Asignatura {
+
+    @Id //Decorador para indicar que PRIVATE INT CODIGO es clave primaria.
     private int codigo;
     private String nombre;
     private String descripcion;

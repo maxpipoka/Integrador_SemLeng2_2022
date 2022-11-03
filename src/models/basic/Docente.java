@@ -2,7 +2,16 @@ package models.basic;
 
 import java.util.Calendar;
 
+//Importacion libreria de persistencia
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity //Decorador para indicar que es entidad a persistir en DB
+@Table(name="docentes") //Decorador para indicar el nombre de la tabla a crear
 public abstract class Docente {
+
+    @Id //Decorador para indicar que el PRIVATE INT LEGAJO es clave primaria
     private int legajo;
     private int docUnico;
     private String nombres;
@@ -12,6 +21,10 @@ public abstract class Docente {
     private CargoDocente cargoDocente;
 
     public Docente(){}
+
+    public Docente(int legajo) {
+        this.legajo = legajo;
+    }
 
     public Docente(int legajo, int docUnico, String nombres, String apellidos, Calendar fechaNac, String direccionNotif, CargoDocente cargoDocente){
         this.legajo = legajo;

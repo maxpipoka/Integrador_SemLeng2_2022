@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <!-- Nombre para la unidad de persistencia -->
+    <persistence-unit name="FacultadPersistance" transaction-type="RESOURCE_LOCAL">
+        <!-- Clases que queremos que esta Persistance Unit persista -->
+        <class>com.ingegradorsemleng2022.models.basic.Asignatura</class>
+        <class>com.ingegradorsemleng2022.models.basic.CargoDocente</class>
+        <class>com.ingegradorsemleng2022.models.basic.Carrera</class>
+        <class>com.ingegradorsemleng2022.models.basic.Docente</class>
+        <class>com.ingegradorsemleng2022.models.basic.Instituto</class>
+        <properties>
+            <!-- Ajustes de hibernate, el framework jpa -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <!-- Parametros de conexion de la base de datos -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-east.connect.psdb.cloud/integrador_semleng2?sslMode=VERIFY_IDENTITY" />
+            <property name="javax.persistence.jdbc.user" value="884fj9i4e6k5sr96zu4z" />
+            <property name="javax.persistence.jdbc.password" value="pscale_pw_vZdQkNOx1mELKcY9sqNqUtxL5ooeLy8iFF4KR5niU9B" />
+        </properties>
+    </persistence-unit>
+</persistence>

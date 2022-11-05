@@ -7,3 +7,4 @@ lib/javafx.media.jar
 lib/javafx.swing.jar
 lib/javafx.web.jar
 src/META-INF/persistence.xml
+bin/META-INF/persistence.xml

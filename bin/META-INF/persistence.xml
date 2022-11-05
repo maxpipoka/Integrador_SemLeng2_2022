@@ -5,20 +5,18 @@
     <!-- Nombre para la unidad de persistencia -->
     <persistence-unit name="FacultadPersistance" transaction-type="RESOURCE_LOCAL">
         <!-- Clases que queremos que esta Persistance Unit persista -->
-        <class>com.ingegradorsemleng2022.models.basic.Asignatura</class>
-        <class>com.ingegradorsemleng2022.models.basic.CargoDocente</class>
-        <class>com.ingegradorsemleng2022.models.basic.Carrera</class>
-        <class>com.ingegradorsemleng2022.models.basic.Docente</class>
-        <class>com.ingegradorsemleng2022.models.basic.Instituto</class>
+        <class>models.basic.Asignatura</class>
+        <class>models.basic.CargoDocente</class>
+        <class>models.basic.Carrera</class>
+        <class>models.basic.Docente</class>
+        <class>models.basic.Instituto</class>
         <properties>
-            <!-- Ajustes de hibernate, el framework jpa -->
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-            <!-- Parametros de conexion de la base de datos -->
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-east.connect.psdb.cloud/integrador_semleng2?sslMode=VERIFY_IDENTITY" />
-            <property name="javax.persistence.jdbc.user" value="884fj9i4e6k5sr96zu4z" />
-            <property name="javax.persistence.jdbc.password" value="pscale_pw_vZdQkNOx1mELKcY9sqNqUtxL5ooeLy8iFF4KR5niU9B" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://containers-us-west-75.railway.app:7333/railway" />
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="jakarta.persistence.jdbc.user" value="postgres" />
+            <property name="jakarta.persistence.jdbc.password" value="Ul1BZXOaxXtkH8YDDSvh" />
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+            <!-- <property name="eclipselink.logging.level" value="FINEST" /> -->
         </properties>
     </persistence-unit>
 </persistence>

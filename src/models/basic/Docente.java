@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity //Decorador para indicar que es entidad a persistir en DB
 @Table(name="docentes") //Decorador para indicar el nombre de la tabla a crear
-public abstract class Docente {
+public class Docente {
 
     @Id //Decorador para indicar que el PRIVATE INT LEGAJO es clave primaria
     private int legajo;

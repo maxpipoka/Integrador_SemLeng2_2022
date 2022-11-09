@@ -4,7 +4,7 @@ import jakarta.persistence.Persistence;
 import models.basic.Instituto;
 
 
-public class App {
+public class App3 {
     public static void main(String[] args) throws Exception {
 
         // Creacion de un Entity Manager Factory, es una fabrica que construye objetos Entity Managers.

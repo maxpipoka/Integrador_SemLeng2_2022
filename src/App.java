@@ -26,17 +26,56 @@ public class App {
         EntityManager em_entidadesFacultad = emf_facultad.createEntityManager();
 
         // Iniciamos una transaccion
+        // Las 'Transactions' son sesiones de ejecución de instrucciones sql.
+        // El concepto de Sesiones responde a que se agrupan instrucciones a ejecutar
+        // contra la base de datos. Responden a un principio ACID.
+        // A - Atomic. Operación indivisible. Se ejecutan todas o ninguna instruccion de la transaccion. Si se intentan ejecutar y una tira error, no se ejecuta ninguna.
+        // C - Consistente. Si se solicitan dos actualizaciones de la DB, donde se saquen 100 unidades de un lugar para poner en otro lugar. La transaccion debe ser
+        //      completa, no se pueden permitir transacciones parciales.
+        // I - Isolated. Aislada , la operación que nosotros realizamos no puede verse afectada por otras operaciones que se estén ejecutando en ese momento.
+        // D - Durable: La información queda grabada en la base de datos para el futuro y persiste
+        
+        // Iniciamos una transaccion invocando al método 'begin()' de la interface 'EntityTransaction' implementado por el método 'getTransaction()' de la clase 'EntityManager'.
         em_entidadesFacultad.getTransaction().begin();
+        // La 'Transaction' no ejecutó nada, solamente fue iniciada.
+        // Es decir, nuestro EntityManager 'em_entidadesFacultad' es un EntityManager con 'Transaction' iniciada.
 
-        //creamos un Instituto inicial
+
+        // Como ejemplo de creación de un registro en una tabla, vamos a hacer la creación de un nuevo 'Instituto'. Los datos para la instancia
+        // pueden venir de hardcodeo es decir codigo a mano, o pueden ser variables obtenidas desde un formulario de interface grafica.
+
+        // creamos un Instituto inicial, con datos proporcionados por nosotros a mano.
+        // Indicamos el tipo de dato 'Instituto', al hacerlo hay que importar la clase desde el paquete 'models.basic' como se ve en la linea 4.
+        // Luego definimos el nombre para la viariable que va a ser el objeto, en este caso le ponemos 'inst1'.
+        // Luego indicamos la instanciacion del objeto con 'new Instituto()' y entre los parentesis los datos necesarios.
+        // Que para el objeto 'Instituto' deben ser: un código que es un 'int' y una denominación que es un 'String'.
+        // Visual studio code deberia mostrar una ayuda con los nombres de los atributos que deben cargarse.
         Instituto inst1 = new Instituto(1, "Primer instituto");
+        // El objeto queda solamente creado dentro de la variable 'inst1' que ahora es nuestro objeto con sus atributos y métodos que definimos en 'Instituto.java'
 
-        // Preparamos el guardado del insituto creado en "inst1"
+        // Preparamos el guardado del instituto creado en "inst1"
+        // Una vez iniciada la 'Transaction' las instrucciones contra la DB se van 'anotando' o 'agendando'
+        // Para cada accion: crear, borrar, modificar, o buscar en la DB. hay una instruccion. 
+        // Guardar un objeto en la DB se hace con la instruccion 'persist()' y entre los parentesis se le pasa que debe guardar.
+        // en nuestro caso es el objeto 'inst1' que instanciamos mas arriba.
+        // Entonces, se le indica al EntityManager 'em_entidadesFacultad' que debe 'Persistir/Guardar' el objeto/s pasado.
         em_entidadesFacultad.persist(inst1);
+        // Recordemos que esta instruccion solamente se agrega a la 'agenda' de instrucciones a hacer en la DB, todavia no se ejecuta.
 
         // Confirmamos la transaccion
+        // Para ejecutar la 'agenda' de instrucciones que veniamos armando, se utiliza el método 'commit()' de la interface 'EntityTransaction'
+        // implementado por el método 'getTransaction()' de la clase 'EntityManager'
         em_entidadesFacultad.getTransaction().commit();
+        
+        // Si todo va bien, se deberia:
+        // Crear la Factory para fabricar Entity's Managers con los datos de la unidad de persistencia
+        // Crear un Entity Manager con la fabrica.
+        // Abrir una 'Transaction' en el EntityManager inciandola.
+        // Crear un objeto de una instancia de la clase Instituto con datos
+        // Indicar que se debe guardar con el 'persist()'
+        // Confirmar la lista de instrucciones preparadas en el 'Transaction' con el 'commit()'
 
+        // Esta linea a continuacion solo imprime el texto en consola al terminar todo.
         System.out.println("Termino sin errores");
     }
 }

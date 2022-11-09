@@ -8,3 +8,10 @@ lib/javafx.swing.jar
 lib/javafx.web.jar
 src/META-INF/persistence.xml
 bin/META-INF/persistence.xml
+lib/org.eclipse.persistence.jpa.modelgen.processor-3.0.1.jar
+lib/org.eclipse.persistence.jpa.jpql-3.0.1.jar
+lib/org.eclipse.persistence.jpa-3.0.1.jar
+lib/org.eclipse.persistence.core-3.0.1.jar
+lib/org.eclipse.persistence.asm-3.0.1.jar
+lib/jakarta.persistence-api-3.0.0.jar
+lib/jakarta.annotation-api-2.0.0.jar

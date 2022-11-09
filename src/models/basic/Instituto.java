@@ -16,6 +16,7 @@ public class Instituto {
     public Instituto(){}
 
     public Instituto(int codigo) {
+        super();
         this.codigo = codigo;
     }
 

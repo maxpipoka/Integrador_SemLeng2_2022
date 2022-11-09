@@ -18,6 +18,7 @@ public class Carrera {
     public Carrera(){}
 
     public Carrera(int codigo) {
+        super();
         this.codigo = codigo;
     }
 

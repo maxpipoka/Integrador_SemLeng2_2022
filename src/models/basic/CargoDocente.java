@@ -17,6 +17,7 @@ public class CargoDocente {
     public CargoDocente(){}
 
     public CargoDocente(int numero) {
+        super();
         this.numero = numero;
     }
 

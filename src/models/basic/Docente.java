@@ -23,6 +23,7 @@ public class Docente {
     public Docente(){}
 
     public Docente(int legajo) {
+        super();
         this.legajo = legajo;
     }
 

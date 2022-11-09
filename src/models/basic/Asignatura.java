@@ -20,6 +20,12 @@ public class Asignatura {
     
     public Asignatura() {
     }
+    
+    public Asignatura(int codigo) {
+        super();
+        this.codigo = codigo;
+    }
+
 
     public Asignatura(int codigo, String nombre, String descripcion, Docente docente, Instituto instituto,
             List<Carrera> carreras) {

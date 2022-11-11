@@ -1,6 +1,6 @@
 package models.basic;
 
-import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,7 +16,7 @@ public class Asignatura {
     private String descripcion;
     private Docente docente;
     private Instituto instituto;
-    private List<Carrera> carreras;
+    private Set<Carrera> carreras;
     
     public Asignatura() {
     }
@@ -28,7 +28,7 @@ public class Asignatura {
 
 
     public Asignatura(int codigo, String nombre, String descripcion, Docente docente, Instituto instituto,
-            List<Carrera> carreras) {
+            Set<Carrera> carreras) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -77,11 +77,11 @@ public class Asignatura {
         this.instituto = instituto;
     }
 
-    public List<Carrera> getCarreras() {
+    public Set<Carrera> getCarreras() {
         return carreras;
     }
 
-    public void setCarreras(List<Carrera> carreras) {
+    public void setCarreras(Set<Carrera> carreras) {
         this.carreras = carreras;
     }
 

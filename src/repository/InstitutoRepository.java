@@ -1,7 +1,12 @@
 package repository;
 
+import java.util.List;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import models.basic.Instituto;
 
 /**
@@ -12,8 +17,8 @@ public class InstitutoRepository {
 
     /**
      * Persist a Instituto object into de DB.
-     * Receive a EntityManager 'em' created by the EntityManagerFactory
-     * with the PersistenceUnit´s params and the object 'instituto' to persist
+     * @param em EntityManager 'em' created by the EntityManagerFactory with the PersistenceUnit´s params 
+     * @param instituto instance of 'instituto' class to persist
      */
     public void saveInstituto(EntityManager em, Instituto instituto){
 
@@ -33,9 +38,8 @@ public class InstitutoRepository {
 
     /**
      * Find a Instituto object in the DB.
-     * Receive a EntityManager 'em' created by the EntityManagerFactory
-     * with the PersistenceUnit´s params and the int value 'codigo'
-     * of the Instituto's codigo to find.
+     * @param em a EntityManager created by the EntityManagerFactory with the PersistenceUnit´s params 
+     * @param codigo int value 'codigo' of the Instituto's codigo to find.
      */
     public Instituto findInstitutoById(EntityManager em, int codigo){
 
@@ -55,9 +59,8 @@ public class InstitutoRepository {
 
     /**
      * Delete a Instituto object from the DB.
-     * Receive a EntityManager 'em' created by the EntityManagerFactory
-     * with the PersistenceUnit´s params and the int value 'codigo'
-     * of the Instituto's codigo to delete.
+     * @param em EntityManager created by the EntityManagerFactory with the PersistenceUnit´s params 
+     * @param codigo int codigo value of the Instituto's codigo to delete.
      */
     public void removeInstituto(EntityManager em, int codigo){
 
@@ -81,5 +84,60 @@ public class InstitutoRepository {
 
     }
 
-    
+    /**
+     * Update a Instituto in the DB.
+     * @param em EntityManager created by the Factory in main app this the PersistenceUnit params
+     * @param codigo Int Instituto's Id to find
+     * @param denominacion String new Instituto's denominacion attribute to update.
+     * @return Return the instance of Instituto updated, after persist it in the DB.
+     */
+    public Instituto updateInstituto(EntityManager em, int codigo, String denominacion){
+        Instituto institutoToUpdate = this.findInstitutoById(em, codigo);
+
+        if (denominacion!= null){
+            institutoToUpdate.setDenominacion(denominacion);
+        }
+
+        EntityTransaction transaction = em.getTransaction();
+
+        try {
+            transaction.begin();
+            em.merge(institutoToUpdate);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            System.out.println("Error al actualizar");
+        }
+
+        return institutoToUpdate;
+    }
+
+    /**
+     * Return a List of Instituto objects from the DB
+     * @param em EntityManager created by the Factory in main app this the PersistenceUnit params
+     * @return a List of Instituto instances
+     */
+    public List<Instituto> getInstitutos(EntityManager em){
+        
+        List<Instituto> allInstitutos = null;
+
+        try {
+            // obtenemos (creamos) un objeto de tipo CriteriaBuilder
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+
+            // se crea un objeto de consulta que devolvera objetos de Instituto
+            CriteriaQuery<Instituto> query = cb.createQuery(Instituto.class);
+
+            // definimos el origen de la consulta (FROM)
+            Root<Instituto> source = query.from(Instituto.class);
+
+            // obtenemos el resultado de la consulta
+            allInstitutos = em.createQuery(query.select(source)).getResultList();
+
+        } catch (Exception e) {
+            System.out.println("Error al recuperar los institutos");
+        }
+        
+        return allInstitutos;
+    }
 }

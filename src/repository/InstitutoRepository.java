@@ -61,18 +61,18 @@ public class InstitutoRepository {
      */
     public void removeInstituto(EntityManager em, int codigo){
 
-        Instituto institutoToDelete = null;
+        Instituto institutoToRemove = null;
 
         EntityTransaction transaction = em.getTransaction();
         try {
-            institutoToDelete = this.findInstitutoById(em, codigo);
+            institutoToRemove = this.findInstitutoById(em, codigo);
         } catch (Exception e) {
             System.out.println("Error al buscar el instituto a borrar");
         }
 
         try {
             transaction.begin();
-            em.remove(institutoToDelete);
+            em.remove(institutoToRemove);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
@@ -81,4 +81,5 @@ public class InstitutoRepository {
 
     }
 
+    
 }

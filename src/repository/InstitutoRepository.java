@@ -28,8 +28,8 @@ public class InstitutoRepository {
             transaction.begin();
             em.persist(instituto);
             transaction.commit();
-        } catch (Exception e) {
             // TODO: implement a return value to the main app with the persit's confirmation
+        } catch (Exception e) {
             transaction.rollback();
             System.out.println("Error en el guardado del Instituto");
         }
@@ -40,6 +40,7 @@ public class InstitutoRepository {
      * Find a Instituto object in the DB.
      * @param em a EntityManager created by the EntityManagerFactory with the PersistenceUnit´s params 
      * @param codigo int value 'codigo' of the Instituto's codigo to find.
+     * @return findedInstituto A instance of Instituto class
      */
     public Instituto findInstitutoById(EntityManager em, int codigo){
 
@@ -92,6 +93,7 @@ public class InstitutoRepository {
      * @return Return the instance of Instituto updated, after persist it in the DB.
      */
     public Instituto updateInstituto(EntityManager em, int codigo, String denominacion){
+
         Instituto institutoToUpdate = this.findInstitutoById(em, codigo);
 
         if (denominacion!= null){
@@ -113,7 +115,7 @@ public class InstitutoRepository {
     }
 
     /**
-     * Return a List of Instituto objects from the DB
+     * Return a List of all Instituto objects from the DB
      * @param em EntityManager created by the Factory in main app this the PersistenceUnit params
      * @return a List of Instituto instances
      */

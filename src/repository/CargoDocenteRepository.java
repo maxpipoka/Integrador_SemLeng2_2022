@@ -134,7 +134,7 @@ public class CargoDocenteRepository {
             // obtenemos (creamos) un objeto de tipo CriteriaBuilder
             CriteriaBuilder cb = em.getCriteriaBuilder();
 
-            // se crea un objeto de consulta que devolvera objetos de Instituto
+            // se crea un objeto de consulta que devolvera objetos de CargoDocente
             CriteriaQuery<CargoDocente> query = cb.createQuery(CargoDocente.class);
 
             // definimos el origen de la consulta (FROM)

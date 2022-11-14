@@ -1,4 +1,4 @@
-package models.basic;
+package model.basic;
 
 import java.util.Calendar;
 

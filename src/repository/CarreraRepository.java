@@ -7,8 +7,8 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-import models.basic.Carrera;
-import models.basic.Instituto;
+import model.basic.Carrera;
+import model.basic.Instituto;
 
 /**
  * Repository class to handle persistence with the Carrera table.
@@ -89,7 +89,8 @@ public class CarreraRepository {
      * @return the instance of the Carrera class updated.
      */
     public Carrera updateCarrera(EntityManager em, 
-                                    int codigo, String nombre, 
+                                    int codigo, 
+                                    String nombre, 
                                     Instituto instituto){
         
         Carrera carreraToUpdate = this.findCarreraById(em, codigo);

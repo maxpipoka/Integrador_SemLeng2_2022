@@ -8,10 +8,10 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-import models.basic.Asignatura;
-import models.basic.Carrera;
-import models.basic.Docente;
-import models.basic.Instituto;
+import model.basic.Asignatura;
+import model.basic.Carrera;
+import model.basic.Docente;
+import model.basic.Instituto;
 
 /**
 * Repository class to handle persistence with the Asignatura table.

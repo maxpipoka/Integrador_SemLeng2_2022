@@ -8,8 +8,8 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-import models.basic.CargoDocente;
-import models.basic.Docente;
+import model.basic.CargoDocente;
+import model.basic.Docente;
 
 /**
  * Repository class to handle persistence with the Docente table.

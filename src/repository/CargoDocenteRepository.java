@@ -7,8 +7,8 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-import models.basic.CargoDocente;
-import models.basic.Instituto;
+import model.basic.CargoDocente;
+import model.basic.Instituto;
 
 /**
  * Repository class to handle persistance with the CargoDocente table.
@@ -126,7 +126,7 @@ public class CargoDocenteRepository {
      * @param em EntityManager created by the Factory in main app this the PersistenceUnit params
      * @return a List of CargoDocente instances.
      */
-    public List<CargoDocente> getCargosDocentes(EntityManager em){
+    public List<CargoDocente> getCargosDocente(EntityManager em){
 
         List<CargoDocente> allCargosDocentes = null;
 

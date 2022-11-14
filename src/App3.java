@@ -1,7 +1,7 @@
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import models.basic.Instituto;
+import model.basic.Instituto;
 
 
 public class App3 {

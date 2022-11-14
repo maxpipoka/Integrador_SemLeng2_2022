@@ -1,4 +1,4 @@
-package models.basic;
+package model.basic;
 
 //Importacion de la libreria de persistencia
 import jakarta.persistence.Entity; 

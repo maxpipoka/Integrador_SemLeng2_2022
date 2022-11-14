@@ -16,7 +16,7 @@ public class InstitutoRepository {
     
 
     /**
-     * Persist a Instituto object into de DB.
+     * Persist a Instituto object into the DB.
      * @param em EntityManager 'em' created by the EntityManagerFactory with the PersistenceUnit´s params 
      * @param instituto instance of 'instituto' class to persist
      */
@@ -108,7 +108,7 @@ public class InstitutoRepository {
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
-            System.out.println("Error al actualizar");
+            System.out.println("Error al actualizar el Instituto");
         }
 
         return institutoToUpdate;

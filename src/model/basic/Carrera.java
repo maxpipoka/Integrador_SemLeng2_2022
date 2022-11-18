@@ -53,6 +53,6 @@ public class Carrera {
     }
 
     public String toString(){
-        return getCodigo() + " - " + getNombre() + " - Instituto: " + instituto.toString(); 
+        return "Código: " + getCodigo() + " - " + getNombre() + " - Instituto: " + instituto.toString(); 
     }
 }

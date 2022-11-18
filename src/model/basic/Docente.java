@@ -93,5 +93,7 @@ public class Docente {
         this.cargoDocente = cargoDocente;
     }
 
-    
+    public String toString(){
+        return "Legajo: " + getLegajo() + "Nombre: " + getApellidos() + " " + getNombres();
+    }
 }

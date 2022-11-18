@@ -86,6 +86,6 @@ public class Asignatura {
     }
 
     public String toString(){
-        return getCodigo() + " - " + getNombre() + " - " + docente.getApellidos() + " " + docente.getNombres() + " - " + instituto.getDenominacion() ;
+        return "Código: " + getCodigo() + " - Nombre: " + getNombre() + " - Instituto: " + instituto.getDenominacion() ;
     }
 }

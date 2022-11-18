@@ -52,7 +52,7 @@ public class CargoDocente {
     }
 
     public String toString(){
-        return getNumero() + " - " + getDedicacionHoras() + " - " + getInstituto();
+        return "Número:" + getNumero() + " - Horas: " + getDedicacionHoras() + " - Instituto: " + getInstituto();
     }
 
 }

@@ -8,10 +8,11 @@ import model.basic.Instituto;
 
 
 public class App extends Application{
-    public static void main(String[] args) throws Exception {
-    
+    public static void main(String[] args) {
+        launch(args);
     }
 
+    @Override
     public void start(Stage stage) throws Exception{
 
         EntityManagerFactory emf_facultad = Persistence.createEntityManagerFactory("FacultadPersistance");

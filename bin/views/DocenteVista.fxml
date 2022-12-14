@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="575.0" maxWidth="600.0" minHeight="575.0" minWidth="600.0" prefHeight="575.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.fx.InstitutoVistaController">
+<Pane maxHeight="575.0" maxWidth="600.0" minHeight="575.0" minWidth="600.0" prefHeight="575.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.fx.DocenteVistaController">
    <children>
       <VBox minHeight="575.0" minWidth="600.0" prefHeight="200.0" prefWidth="100.0">
          <children>
             <Pane minHeight="60.0" minWidth="600.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="600.0" styleClass="section_title_container">
                <children>
-                  <Label contentDisplay="BOTTOM" styleClass="section_title" text="Institutos" textAlignment="RIGHT" />
+                  <Label contentDisplay="BOTTOM" styleClass="section_title" text="Docentes" textAlignment="RIGHT" />
                </children>
             </Pane>
             <Pane minHeight="350.0" minWidth="600.0" prefHeight="350.0" prefWidth="600.0">
@@ -39,17 +39,17 @@
                            <children>
                               <VBox alignment="CENTER" minHeight="350.0" minWidth="150.0" prefHeight="350.0" prefWidth="150.0" styleClass="section_box_menu">
                                  <children>
-                                    <Button fx:id="btn_instituto_guardar" minWidth="100.0" mnemonicParsing="false" onAction="#saveInstituto" styleClass="btn_success" text="Guardar">
+                                    <Button fx:id="btn_instituto_guardar" minWidth="100.0" mnemonicParsing="false" styleClass="btn_success" text="Guardar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button fx:id="btn_instituto_editar" minWidth="100.0" mnemonicParsing="false" onAction="#editInstituto" styleClass="btn_secondary" text="Editar">
+                                    <Button fx:id="btn_instituto_editar" minWidth="100.0" mnemonicParsing="false" styleClass="btn_secondary" text="Editar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button fx:id="btn_instituto_eliminar" minWidth="100.0" mnemonicParsing="false" onAction="#deleteInstituto" styleClass="btn_warning" text="Eliminar">
+                                    <Button fx:id="btn_instituto_eliminar" minWidth="100.0" mnemonicParsing="false" styleClass="btn_warning" text="Eliminar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
@@ -72,7 +72,7 @@
                            </padding>
                            <children>
                               <Label text="Codigo" />
-                              <TextField fx:id="txt_instituto_cod" />
+                              <TextField fx:id="txt_institutos_cod" />
                            </children>
                         </VBox>
                         <VBox minWidth="470.0" prefHeight="200.0" prefWidth="470.0">
@@ -81,7 +81,7 @@
                            </padding>
                            <children>
                               <Label text="Denominación" />
-                              <TextField fx:id="txt_instituto_denominacion" />
+                              <TextField fx:id="txt_institutos_denominacion" />
                            </children>
                            <HBox.margin>
                               <Insets left="10.0" />

@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class InstitutoVistaController {
+public class DocenteVistaController {
 
     @FXML
     private TableView<?> table_institutos;

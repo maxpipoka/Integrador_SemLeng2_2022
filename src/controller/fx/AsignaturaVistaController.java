@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class InstitutoVistaController {
+public class AsignaturaVistaController {
 
     @FXML
     private TableView<?> table_institutos;
@@ -27,17 +27,17 @@ public class InstitutoVistaController {
     private TextField txt_instituto_denominacion;
 
     @FXML
-    void deleteInstituto(ActionEvent event) {
+    void deleteAsignatura(ActionEvent event) {
 
     }
 
     @FXML
-    void editInstituto(ActionEvent event) {
+    void editAsignatura(ActionEvent event) {
 
     }
 
     @FXML
-    void saveInstituto(ActionEvent event) {
+    void saveAsignatura(ActionEvent event) {
 
     }
 

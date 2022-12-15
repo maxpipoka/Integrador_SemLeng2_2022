@@ -1,6 +1,6 @@
 package model.basic;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 //Importacion libreria de persistencia
 import jakarta.persistence.Entity;
@@ -16,7 +16,7 @@ public class Docente {
     private int docUnico;
     private String nombres;
     private String apellidos;
-    private Calendar fechaNac;
+    private LocalDate fechaNac;
     private String direccionNotif;
     private CargoDocente cargoDocente;
 
@@ -27,7 +27,7 @@ public class Docente {
         this.legajo = legajo;
     }
 
-    public Docente(int legajo, int docUnico, String nombres, String apellidos, Calendar fechaNac, String direccionNotif, CargoDocente cargoDocente){
+    public Docente(int legajo, int docUnico, String nombres, String apellidos, LocalDate fechaNac, String direccionNotif, CargoDocente cargoDocente){
         this.legajo = legajo;
         this.docUnico = docUnico;
         this.nombres = nombres;
@@ -69,11 +69,11 @@ public class Docente {
         this.apellidos = apellidos;
     }
 
-    public Calendar getFechaNac() {
+    public LocalDate getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Calendar fechaNac) {
+    public void setFechaNac(LocalDate fechaNac) {
         this.fechaNac = fechaNac;
     }
 

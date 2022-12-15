@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -25,9 +26,11 @@
                      <children>
                         <Pane minHeight="350.0" minWidth="450.0" prefHeight="350.0" prefWidth="450.0">
                            <children>
-                              <TableView fx:id="table_institutos" layoutX="10.0" minHeight="350.0" minWidth="430.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="350.0" prefWidth="430.0">
+                              <TableView fx:id="table_cargos" layoutX="10.0" minHeight="350.0" minWidth="430.0" prefHeight="350.0" prefWidth="430.0">
                                 <columns>
-                                  <TableColumn editable="false" maxWidth="430.0" minWidth="430.0" prefWidth="430.0" resizable="false" sortable="false" text="C1" />
+                                  <TableColumn fx:id="columnNumero" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" sortable="false" style="-fx-alignment: CENTER;" text="Número" />
+                                    <TableColumn fx:id="columnDedicacion" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" sortable="false" style="-fx-alignment: CENTER;" text="Ded. Horas" />
+                                    <TableColumn fx:id="columnInstituto" editable="false" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" resizable="false" sortable="false" style="-fx-alignment: CENTER-LEFT;" text="Instituto" />
                                 </columns>
                               </TableView>
                            </children>
@@ -39,17 +42,17 @@
                            <children>
                               <VBox alignment="CENTER" minHeight="350.0" minWidth="150.0" prefHeight="350.0" prefWidth="150.0" styleClass="section_box_menu">
                                  <children>
-                                    <Button fx:id="btn_instituto_guardar" minWidth="100.0" mnemonicParsing="false" styleClass="btn_success" text="Guardar">
+                                    <Button fx:id="btn_cargos_guardar" minWidth="100.0" mnemonicParsing="false" onAction="#saveCargo" styleClass="btn_success" text="Guardar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button fx:id="btn_instituto_editar" minWidth="100.0" mnemonicParsing="false" styleClass="btn_secondary" text="Editar">
+                                    <Button fx:id="btn_cargos_editar" minWidth="100.0" mnemonicParsing="false" onAction="#editCargo" styleClass="btn_secondary" text="Editar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button fx:id="btn_instituto_eliminar" minWidth="100.0" mnemonicParsing="false" styleClass="btn_warning" text="Eliminar">
+                                    <Button fx:id="btn_cargos_eliminar" minWidth="100.0" mnemonicParsing="false" onAction="#removeCargo" styleClass="btn_warning" text="Eliminar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
@@ -71,22 +74,35 @@
                               <Insets top="20.0" />
                            </padding>
                            <children>
-                              <Label text="Codigo" />
-                              <TextField fx:id="txt_institutos_cod" />
+                              <Label text="Número" />
+                              <TextField fx:id="txt_cargos_numero" />
                            </children>
                         </VBox>
-                        <VBox minWidth="470.0" prefHeight="200.0" prefWidth="470.0">
-                           <padding>
-                              <Insets top="20.0" />
-                           </padding>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Denominación" />
-                              <TextField fx:id="txt_institutos_denominacion" />
+                              <VBox minWidth="111.0" prefHeight="165.0" prefWidth="111.0">
+                                 <padding>
+                                    <Insets top="20.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Dedicación Horas" />
+                                    <TextField fx:id="txt_cargos_dedicacion" maxWidth="100.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox maxWidth="250.0" minWidth="250.0" prefHeight="165.0" prefWidth="250.0">
+                                 <padding>
+                                    <Insets top="20.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Instituto" />
+                                    <ChoiceBox fx:id="choiseInstituto" prefHeight="25.0" prefWidth="288.0" />
+                                 </children>
+                              </VBox>
                            </children>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </VBox>
+                        </HBox>
                      </children>
                      <padding>
                         <Insets left="10.0" right="10.0" />

@@ -1,8 +1,12 @@
 package controller.fx;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,8 +20,18 @@ import model.basic.Asignatura;
 import model.basic.Carrera;
 import model.basic.Docente;
 import model.basic.Instituto;
+import service.AsignaturaService;
+import service.DocenteService;
+import service.InstitutoService;
 
 public class AsignaturaVistaController implements Initializable{
+
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("FacultadPersistance");
+    EntityManager em = emf.createEntityManager();
+
+    private AsignaturaService asignaturaService = new AsignaturaService();
+    private InstitutoService institutoService = new InstitutoService();
+    private DocenteService docenteService = new DocenteService();
 
     @FXML
     private Button btn_asignaturas_editar;
@@ -78,8 +92,26 @@ public class AsignaturaVistaController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
+        this.updateTable();
+        this.fillDocenteCBox();
+        this.fillInstitutoCBox();
         
+    }
+
+    public void updateTable(){
+        List<Asignatura> asignaturasFromService = asignaturaService.getAsignaturas(em);
+        table_asignaturas.getItems().clear();
+        table_asignaturas.getItems().addAll(asignaturasFromService);
+    }
+
+    public void fillInstitutoCBox(){
+        List<Instituto> institutosFromService = institutoService.getInstitutos(em);
+        cboxInstituto.getItems().addAll(institutosFromService);
+    }
+    
+    public void fillDocenteCBox(){
+        List<Docente> docenteFromService = docenteService.getDocentes(em);
+        cboxAsignaturaDocente.getItems().addAll(docenteFromService);
     }
 
 }

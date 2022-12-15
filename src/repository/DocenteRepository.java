@@ -1,5 +1,6 @@
 package repository;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
 
@@ -100,7 +101,7 @@ public class DocenteRepository {
                                     int docUnico, 
                                     String nombres,
                                     String apellidos,
-                                    Calendar fechaNac,
+                                    LocalDate fechaNac,
                                     String direccionNotif,
                                     CargoDocente cargoDocente){
 

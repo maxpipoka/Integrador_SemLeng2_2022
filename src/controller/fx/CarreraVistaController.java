@@ -13,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -63,6 +62,17 @@ public class CarreraVistaController implements Initializable{
     private TextField txt_carrera_nombre;
 
     @FXML
+    void removeCarrera(ActionEvent event) {
+        Carrera selectedCarrera = table_carreras.getSelectionModel().getSelectedItem();
+
+        if(selectedCarrera != null){
+            carreraService.removeCarrera(em, selectedCarrera.getCodigo());
+            updateTable();
+        }
+
+    }
+    
+    @FXML
     void editCarrera(ActionEvent event) {
         Carrera selectedCarrera = table_carreras.getSelectionModel().getSelectedItem();
         
@@ -79,23 +89,12 @@ public class CarreraVistaController implements Initializable{
         }
     }
 
-    @FXML
-    void removeCarrera(ActionEvent event) {
-        Carrera selectedCarrera = table_carreras.getSelectionModel().getSelectedItem();
-
-        if(selectedCarrera != null){
-            carreraService.removeCarrera(em, selectedCarrera.getCodigo());
-            updateTable();
-        }
-
-    }
 
     @FXML
     void saveCarrera(ActionEvent event) {
         
         Alert a = new Alert(AlertType.ERROR);
         
-
         if ((txt_carrera_cod.getText() != null) && (txt_carrera_nombre.getText() != null) && (cbox_carreras_institutos.getSelectionModel().getSelectedIndex() >= 0)){
             
             Carrera carreraToSave = new Carrera(

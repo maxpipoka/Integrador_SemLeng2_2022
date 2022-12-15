@@ -27,7 +27,8 @@
                            <children>
                               <TableView fx:id="table_institutos" layoutX="10.0" minHeight="350.0" minWidth="430.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="350.0" prefWidth="430.0">
                                 <columns>
-                                  <TableColumn editable="false" maxWidth="430.0" minWidth="430.0" prefWidth="430.0" resizable="false" sortable="false" text="C1" />
+                                    <TableColumn fx:id="columnDenominacion" editable="false" minWidth="330.0" prefWidth="330.0" sortable="false" styleClass="tableColumn" text="Denominación" />
+                                  <TableColumn fx:id="columnCodigo" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" sortable="false" styleClass="tableColumn" text="Código" />
                                 </columns>
                               </TableView>
                            </children>

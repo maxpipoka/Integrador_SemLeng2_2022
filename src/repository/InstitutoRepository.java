@@ -13,6 +13,8 @@ import model.basic.Instituto;
 * Repository class to handle persistence with the Institutes table.
 */
 public class InstitutoRepository {
+
+    public InstitutoRepository(){};
     
 
     /**

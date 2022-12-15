@@ -11,7 +11,9 @@ import repository.InstitutoRepository;
  */
 public class InstitutoService {
 
-    private InstitutoRepository institutoRepository;
+    private InstitutoRepository institutoRepository = new InstitutoRepository();
+
+    public InstitutoService(){};
 
     public void saveInstituto(EntityManager em, Instituto instituto){
         institutoRepository.saveInstituto(em, instituto);

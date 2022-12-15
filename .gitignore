@@ -7,3 +7,4 @@ lib/org.eclipse.persistence.core-3.0.1.jar
 lib/org.eclipse.persistence.asm-3.0.1.jar
 lib/jakarta.persistence-api-3.0.0.jar
 lib/jakarta.annotation-api-2.0.0.jar
+.vscode/launch.json

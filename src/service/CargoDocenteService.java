@@ -12,7 +12,9 @@ import repository.CargoDocenteRepository;
  */
 public class CargoDocenteService {
 
-    private CargoDocenteRepository cargoDocenteRepository;
+    private CargoDocenteRepository cargoDocenteRepository = new CargoDocenteRepository();
+
+    public CargoDocenteService(){};
 
     public void saveCargoDocente(EntityManager em, CargoDocente cargoDocente){
         cargoDocenteRepository.saveCargoDocente(em, cargoDocente);

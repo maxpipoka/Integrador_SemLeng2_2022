@@ -42,6 +42,6 @@ public class Instituto {
     }
 
     public String toString(){
-        return this.getCodigo() + " " + this.getDenominacion();
+        return this.getCodigo() + " - " + this.getDenominacion();
     }
 }

@@ -8,7 +8,15 @@
             "type": "java",
             "name": "Launch App",
             "request": "launch",
-            "vmArgs": "--module-path F:/desarrollo/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path D:/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "App",
+            "projectName": "Integrador_SemLeng2_2022_76099ff8"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "vmArgs": "--module-path D:/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
             "mainClass": "App",
             "projectName": "integradorSemLeng2022_99884e9a"
         },
@@ -16,14 +24,14 @@
             "type": "java",
             "name": "Launch Current File",
             "request": "launch",
-            "vmArgs": "--module-path F:/desarrollo/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path D:/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
             "mainClass": "${file}"
         },
         {
             "type": "java",
             "name": "Launch App2",
             "request": "launch",
-            "vmArgs": "--module-path F:/desarrollo/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path D:/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
             "mainClass": "App2",
             "projectName": "integradorSemLeng2022_99884e9a"
         },
@@ -31,7 +39,7 @@
             "type": "java",
             "name": "Launch App3",
             "request": "launch",
-            "vmArgs": "--module-path F:/desarrollo/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path D:/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
             "mainClass": "App3",
             "projectName": "integradorSemLeng2022_99884e9a"
         }

@@ -17,6 +17,8 @@ import model.basic.Instituto;
 * Repository class to handle persistence with the Asignatura table.
 */
 public class AsignaturaRepository {
+
+    public AsignaturaRepository(){};
     
 
     /**

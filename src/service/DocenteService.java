@@ -13,7 +13,9 @@ import repository.DocenteRepository;
  */
 public class DocenteService {
     
-    private DocenteRepository docenteRepository;
+    private DocenteRepository docenteRepository = new DocenteRepository();
+
+    public DocenteService(){};
 
     public void saveDocente(EntityManager em, Docente docente){
         docenteRepository.saveDocente(em, docente);

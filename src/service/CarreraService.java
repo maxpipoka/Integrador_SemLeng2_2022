@@ -12,7 +12,9 @@ import repository.CarreraRepository;
  */
 public class CarreraService {
     
-    private CarreraRepository carreraRepository;
+    private CarreraRepository carreraRepository = new CarreraRepository();
+
+    public CarreraService(){};
 
     public void saveCarrera(EntityManager em, Carrera carrera){
         carreraRepository.saveCarera(em, carrera);

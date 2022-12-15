@@ -14,6 +14,8 @@ import model.basic.Instituto;
  * Repository class to handle persistence with the Carrera table.
  */
 public class CarreraRepository {
+
+    public CarreraRepository(){};
     
     /**
      * Persis a Carrera object into the DB

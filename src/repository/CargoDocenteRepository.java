@@ -14,6 +14,8 @@ import model.basic.Instituto;
  * Repository class to handle persistance with the CargoDocente table.
  */
 public class CargoDocenteRepository {
+
+    public CargoDocenteRepository(){};
     
 
     /**

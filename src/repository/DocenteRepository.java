@@ -16,6 +16,8 @@ import model.basic.Docente;
  */
 public class DocenteRepository {
 
+    public DocenteRepository(){};
+
     /**
      * Persist a Docente object into the DB.
      * @param em EntityManager 'em' created by the EntityManagerFactory with the PersistenceUnit´s params

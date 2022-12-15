@@ -2,7 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -10,13 +12,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="575.0" maxWidth="600.0" minHeight="575.0" minWidth="600.0" prefHeight="575.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.fx.AsignaturaVistaController">
+<Pane maxHeight="575.0" maxWidth="600.0" minHeight="575.0" minWidth="600.0" prefHeight="575.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.fx.AsignaturaVistaController">
    <children>
       <VBox minHeight="575.0" minWidth="600.0" prefHeight="200.0" prefWidth="100.0">
          <children>
             <Pane minHeight="60.0" minWidth="600.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="600.0" styleClass="section_title_container">
                <children>
-                  <Label contentDisplay="BOTTOM" styleClass="section_title" text="Asignaturas" textAlignment="RIGHT" />
+                  <Label contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="600.0" styleClass="section_title" text="Asignaturas" textAlignment="RIGHT" />
                </children>
             </Pane>
             <Pane minHeight="350.0" minWidth="600.0" prefHeight="350.0" prefWidth="600.0">
@@ -25,9 +27,12 @@
                      <children>
                         <Pane minHeight="350.0" minWidth="450.0" prefHeight="350.0" prefWidth="450.0">
                            <children>
-                              <TableView fx:id="table_asignaturas" layoutX="10.0" minHeight="350.0" minWidth="430.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="350.0" prefWidth="430.0">
+                              <TableView fx:id="table_asignaturas" layoutX="10.0" minHeight="350.0" minWidth="430.0" prefHeight="350.0" prefWidth="430.0">
                                 <columns>
-                                  <TableColumn editable="false" maxWidth="430.0" minWidth="430.0" prefWidth="430.0" resizable="false" sortable="false" text="C1" />
+                                  <TableColumn fx:id="columnCodigo" editable="false" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" sortable="false" style="-fx-alignment: CENTER-RIGHT;" text="Código" />
+                                    <TableColumn fx:id="columnNombre" editable="false" maxWidth="126.0" minWidth="126.0" prefWidth="126.0" resizable="false" sortable="false" style="-fx-alignment: CENTER-LEFT;" text="Nombre" />
+                                    <TableColumn fx:id="columnDocente" editable="false" maxWidth="126.0" minWidth="126.0" prefWidth="126.0" resizable="false" sortable="false" style="-fx-alignment: CENTER-LEFT;" text="Docente" />
+                                    <TableColumn fx:id="columnInstituto" editable="false" maxWidth="128.0" minWidth="128.0" prefWidth="128.0" resizable="false" sortable="false" style="-fx-alignment: CENTER-LEFT;" text="Instituto" />
                                 </columns>
                               </TableView>
                            </children>
@@ -39,17 +44,17 @@
                            <children>
                               <VBox alignment="CENTER" minHeight="350.0" minWidth="150.0" prefHeight="350.0" prefWidth="150.0" styleClass="section_box_menu">
                                  <children>
-                                    <Button fx:id="btn_instituto_guardar" minWidth="100.0" mnemonicParsing="false" onAction="#saveAsignatura" styleClass="btn_success" text="Guardar">
+                                    <Button fx:id="btn_asignaturas_guardar" minWidth="100.0" mnemonicParsing="false" onAction="#saveAsignatura" styleClass="btn_success" text="Guardar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button fx:id="btn_instituto_editar" minWidth="100.0" mnemonicParsing="false" onAction="#editAsignatura" styleClass="btn_secondary" text="Editar">
+                                    <Button fx:id="btn_asignaturas_editar" minWidth="100.0" mnemonicParsing="false" onAction="#editAsignatura" styleClass="btn_secondary" text="Editar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button fx:id="btn_instituto_eliminar" minWidth="100.0" mnemonicParsing="false" onAction="#deleteAsignatura" styleClass="btn_warning" text="Eliminar">
+                                    <Button fx:id="btn_asignaturas_eliminar" minWidth="100.0" mnemonicParsing="false" onAction="#removeAsignatura" styleClass="btn_warning" text="Eliminar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
@@ -73,15 +78,41 @@
                            <children>
                               <Label text="Codigo" />
                               <TextField fx:id="txt_asignatura_cod" />
+                              <Label text="Docente">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="cboxAsignaturaDocente" prefWidth="150.0" />
                            </children>
                         </VBox>
-                        <VBox minWidth="470.0" prefHeight="200.0" prefWidth="470.0">
+                        <VBox maxWidth="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0">
                            <padding>
                               <Insets top="20.0" />
                            </padding>
                            <children>
                               <Label text="Nombre" />
-                              <TextField fx:id="txt_asignatura_nombre" />
+                              <TextField fx:id="txt_asignatura_nombre" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                              <Label text="Descripcion">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="txt_asignatura_descripcion" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                              <Label text="Instituto" />
+                              <ChoiceBox fx:id="cboxInstituto" prefWidth="150.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox maxWidth="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <children>
+                              <Label text="Carreras" />
+                              <ListView fx:id="listViewAsignaturaCarreras" fixedCellSize="3.0" prefHeight="115.0" prefWidth="200.0" />
                            </children>
                            <HBox.margin>
                               <Insets left="10.0" />

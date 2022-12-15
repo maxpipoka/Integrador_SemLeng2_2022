@@ -44,8 +44,10 @@ public class App extends Application{
 
         // Armado del stage principal
         Scene scene = new Scene(root);
+        String css = this.getClass().getResource("style.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
-        scene.getStylesheets().add(App.class.getResource("style.css").toExternalForm());
+        // scene.getStylesheets().add(App.class.getResource("style.css").toExternalForm());
         stage.setTitle("Primer test app javaFx");
         stage.show();
         System.out.println("Termino sin errores");

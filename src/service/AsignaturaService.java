@@ -16,7 +16,9 @@ import repository.AsignaturaRepository;
  */
 public class AsignaturaService {
     
-    private AsignaturaRepository asignaturaRepository;
+    private AsignaturaRepository asignaturaRepository = new AsignaturaRepository();
+
+    public AsignaturaService(){};
 
     public void saveAsignatura(EntityManager em, Asignatura asignatura){
         asignaturaRepository.saveAsignatura(em, asignatura);

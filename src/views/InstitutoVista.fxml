@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="575.0" maxWidth="600.0" minHeight="575.0" minWidth="600.0" prefHeight="575.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.fx.InstitutoVistaController">
+<Pane maxHeight="575.0" maxWidth="600.0" minHeight="575.0" minWidth="600.0" prefHeight="575.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.fx.InstitutoVistaController">
    <children>
       <VBox minHeight="575.0" minWidth="600.0" prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -18,6 +18,9 @@
                <children>
                   <Label contentDisplay="BOTTOM" styleClass="section_title" text="Institutos" textAlignment="RIGHT" />
                </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
             </Pane>
             <Pane minHeight="350.0" minWidth="600.0" prefHeight="350.0" prefWidth="600.0">
                <children>
@@ -25,10 +28,10 @@
                      <children>
                         <Pane minHeight="350.0" minWidth="450.0" prefHeight="350.0" prefWidth="450.0">
                            <children>
-                              <TableView fx:id="table_institutos" layoutX="10.0" minHeight="350.0" minWidth="430.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="350.0" prefWidth="430.0">
+                              <TableView fx:id="table_institutos" layoutX="10.0" minHeight="350.0" minWidth="430.0" prefHeight="350.0" prefWidth="430.0">
                                 <columns>
-                                    <TableColumn fx:id="columnDenominacion" editable="false" minWidth="330.0" prefWidth="330.0" sortable="false" styleClass="tableColumn" text="Denominación" />
-                                  <TableColumn fx:id="columnCodigo" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" sortable="false" styleClass="tableColumn" text="Código" />
+                                  <TableColumn fx:id="columnCodigo" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" sortable="false" style="-fx-alignment: CENTER-RIGHT;" styleClass="tableColumnRight" text="Código" />
+                                    <TableColumn fx:id="columnDenominacion" editable="false" minWidth="330.0" prefWidth="330.0" sortable="false" style="-fx-alignment: CENTER-LEFT;" styleClass="tableColumnLeft" text="Denominación" />
                                 </columns>
                               </TableView>
                            </children>
@@ -50,7 +53,7 @@
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button fx:id="btn_instituto_eliminar" minWidth="100.0" mnemonicParsing="false" onAction="#deleteInstituto" styleClass="btn_warning" text="Eliminar">
+                                    <Button fx:id="btn_instituto_eliminar" minWidth="100.0" mnemonicParsing="false" onAction="#removeInstituto" styleClass="btn_warning" text="Eliminar">
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
                                        </VBox.margin>

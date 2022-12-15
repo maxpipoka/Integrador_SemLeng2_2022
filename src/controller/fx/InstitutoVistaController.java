@@ -1,15 +1,12 @@
 package controller.fx;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -55,7 +52,7 @@ public class InstitutoVistaController implements Initializable{
     private TextField txt_instituto_denominacion;
 
     @FXML
-    void deleteInstituto(ActionEvent event) {
+    void removeInstituto(ActionEvent event) {
         Instituto selectedInstituto = table_institutos.getSelectionModel().getSelectedItem();
         if (selectedInstituto != null){
             institutoService.removeInstituto(em, selectedInstituto.getCodigo());
@@ -66,10 +63,11 @@ public class InstitutoVistaController implements Initializable{
     @FXML
     void editInstituto(ActionEvent event) {
         Instituto selectedInstituto = table_institutos.getSelectionModel().getSelectedItem();
+        
         if (selectedInstituto != null){
             txt_instituto_cod.setText(Integer.toString(selectedInstituto.getCodigo()));
             txt_instituto_denominacion.setText(selectedInstituto.getDenominacion());
-            this.deleteInstituto(event);
+            this.removeInstituto(event);
             this.updateTable();
             btn_instituto_eliminar.setDisable(true);
             btn_instituto_editar.setDisable(true);
@@ -80,20 +78,26 @@ public class InstitutoVistaController implements Initializable{
 
     @FXML
     void saveInstituto(ActionEvent event) {
+        Alert a = new Alert(AlertType.ERROR);
 
-        Instituto institutoToSave = new Instituto(Integer.parseInt(txt_instituto_cod.getText()), txt_instituto_denominacion.getText());
+        if ((txt_instituto_cod.getText() != "") && (txt_instituto_denominacion.getText() != "")){
+            Instituto institutoToSave = new Instituto(
+                                                        Integer.parseInt(txt_instituto_cod.getText()), 
+                                                        txt_instituto_denominacion.getText());
 
-        try{
-            institutoService.saveInstituto(em, institutoToSave);
-            txt_instituto_cod.clear();
-            txt_instituto_denominacion.clear();
-            this.updateTable();
-        } catch (Exception e){
-            Alert a = new Alert(AlertType.ERROR);
-            a.setContentText("No se puede guardar el Instituto");
+            try{
+                institutoService.saveInstituto(em, institutoToSave);
+                txt_instituto_cod.clear();
+                txt_instituto_denominacion.clear();
+                this.updateTable();
+            } catch (Exception e){
+                a.setContentText("No se puede guardar el Instituto");
+                a.show();
+            }
+        } else {
+            a.setContentText("Deben completarse todos los campos");
             a.show();
         }
-        
 
         btn_instituto_eliminar.setDisable(false);
         btn_instituto_editar.setDisable(false);

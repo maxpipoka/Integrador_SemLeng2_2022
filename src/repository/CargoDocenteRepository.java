@@ -52,7 +52,7 @@ public class CargoDocenteRepository {
 
         try {
             transaction.begin();
-            em.find(CargoDocente.class, numero);
+            findedCargoDocente = em.find(CargoDocente.class, numero);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();

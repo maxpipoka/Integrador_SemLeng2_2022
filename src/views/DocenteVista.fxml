@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="575.0" maxWidth="600.0" minHeight="575.0" minWidth="600.0" prefHeight="575.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.fx.DocenteVistaController">
+<Pane maxHeight="575.0" maxWidth="600.0" minHeight="575.0" minWidth="600.0" prefHeight="575.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.fx.DocenteVistaController">
    <children>
       <VBox minHeight="575.0" minWidth="600.0" prefHeight="200.0" prefWidth="100.0">
          <children>
             <Pane minHeight="60.0" minWidth="600.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="600.0" styleClass="section_title_container">
                <children>
-                  <Label contentDisplay="BOTTOM" styleClass="section_title" text="Docentes" textAlignment="RIGHT" />
+                  <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="600.0" styleClass="section_title" text="Docentes" textAlignment="RIGHT" />
                </children>
             </Pane>
             <Pane minHeight="350.0" minWidth="600.0" prefHeight="350.0" prefWidth="600.0">

@@ -1,6 +1,6 @@
 .section_title {
-    -fx-margin-left: 20px;
     -fx-color: #ff0000;
     -fx-font-weight: 700;
-    -fx-font-size: 30px;
+    -fx-font-size: 20px;
+    -fx-margin-right: 50px;
 }

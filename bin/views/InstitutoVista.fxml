@@ -16,7 +16,7 @@
          <children>
             <Pane minHeight="60.0" minWidth="600.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="600.0" styleClass="section_title_container">
                <children>
-                  <Label contentDisplay="BOTTOM" styleClass="section_title" text="Institutos" textAlignment="RIGHT" />
+                  <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="600.0" styleClass="section_title" text="Institutos" textAlignment="RIGHT" />
                </children>
                <padding>
                   <Insets right="20.0" />

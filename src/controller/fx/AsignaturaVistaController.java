@@ -1,6 +1,7 @@
 package controller.fx;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -23,6 +24,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.basic.Asignatura;
 import model.basic.Carrera;
 import model.basic.Docente;
@@ -86,11 +88,25 @@ public class AsignaturaVistaController implements Initializable{
 
     @FXML
     void removeAsignatura(ActionEvent event) {
-
+        Asignatura selectedAsignatura = table_asignaturas.getSelectionModel().getSelectedItem();
+        if (selectedAsignatura != null){
+            asignaturaService.removeAsignatura(em, selectedAsignatura.getCodigo());
+            updateTable();
+        }
     }
 
     @FXML
     void editAsignatura(ActionEvent event) {
+        Asignatura selectedAsignatura = table_asignaturas.getSelectionModel().getSelectedItem();
+
+        if (selectedAsignatura != null){
+            txt_asignatura_cod.setText(Integer.toString(selectedAsignatura.getCodigo()));
+            txt_asignatura_nombre.setText(selectedAsignatura.getNombre());
+            txt_asignatura_descripcion.setText(selectedAsignatura.getDescripcion());
+            cboxAsignaturaDocente.setValue(selectedAsignatura.getDocente());
+            cboxInstituto.setValue(selectedAsignatura.getInstituto());
+            listViewAsignaturaCarreras.getSelectionModel().set;
+        }
 
     }
 
@@ -105,7 +121,7 @@ public class AsignaturaVistaController implements Initializable{
             (cboxInstituto.getSelectionModel().getSelectedIndex() >= 0) &&
             (listViewAsignaturaCarreras.getSelectionModel().getSelectedIndices() != null)){
                 
-                List<Carrera> selectedCarreras;
+                List<Carrera> selectedCarreras = new ArrayList<Carrera>();
                 for (Carrera carrera : listViewAsignaturaCarreras.getSelectionModel().getSelectedItems()){
                     selectedCarreras.add(carrera);
                 }
@@ -115,13 +131,33 @@ public class AsignaturaVistaController implements Initializable{
                                                             txt_asignatura_nombre.getText(),
                                                             txt_asignatura_descripcion.getText(),
                                                             cboxAsignaturaDocente.getSelectionModel().getSelectedItem(),
-                                                            cboxAsignaturaDocente.getSelectionModel().getSelectedItem(),);
-
+                                                            cboxInstituto.getSelectionModel().getSelectedItem(),
+                                                            selectedCarreras);
+                try {
+                    asignaturaService.saveAsignatura(em, asignaturaToSave);
+                    txt_asignatura_cod.clear();
+                    txt_asignatura_nombre.clear();
+                    txt_asignatura_descripcion.clear();
+                    cboxAsignaturaDocente.getSelectionModel().clearSelection();
+                    cboxInstituto.getSelectionModel().clearSelection();
+                    listViewAsignaturaCarreras.getSelectionModel().clearSelection();
+                    this.updateTable();
+                } catch (Exception e){
+                    a.setContentText("No se puede guardar la Asignatura");
+                    a.show();
+                }
+            } else {
+                a.setContentText("Deben completarse todos los campos");
+                a.show();
             }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        columnCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        columnDocente.setCellValueFactory(new PropertyValueFactory<>("docente"));
+        columnInstituto.setCellValueFactory(new PropertyValueFactory<>("instituto"));
         this.updateTable();
         this.fillDocenteCBox();
         this.fillInstitutoCBox();
